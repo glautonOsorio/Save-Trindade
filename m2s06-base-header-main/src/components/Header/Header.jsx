@@ -1,10 +1,13 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "./Header.css";
 import PropTypes from "prop-types";
 
 const Header = (props) => {
   const logoDefault = useState("Logo Default");
   const [logo, setLogo] = useState(logoDefault);
+  useEffect(() => {
+    window.document.title = logo;
+  }, [logo]);
 
   const renderMenuItem = (menuItem) => {
     return (
